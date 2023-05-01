@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Lua Development</title>
+    <link href="./css/app.css" rel="stylesheet">
+    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js"
+      crossorigin="anonymous"></script>
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700"
+      rel="stylesheet" type="text/css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic"
+      rel="stylesheet" type="text/css" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="../css/styles.css" rel="stylesheet" />
+    <script src="https://apis.google.com/js/api.js"></script>
+
+  </head>
+
+  <body>
+    <div id="app">
+      <div class="menu-wrapper">
+        <ul class="menu-list clearfix">
+          <li class="menu-item">
+            <div class="theme-wrapper menu-item-wrapper" id="themeWrapper">
+              <button type="button" class="btn btn-outline-primary go">Đề thi</button>
+            </div>
+          </li>
+          <li class="menu-item">
+            <div class="theme-wrapper menu-item-wrapper" id="themeWrapper">
+              <button type="button" class="btn btn-outline-success viewgo">Người dự thi</button>
+            </div>
+          </li>
+          <!-- <li class="menu-item"></li>
+            <div class="theme-wrapper menu-item-wrapper" id="themeWrapper">
+              <button type="button" class="btn btn-outline-primary go">Đề thi</button>
+            </div>
+          </li>
+          <li class="menu-item"></li>
+            <div class="theme-wrapper menu-item-wrapper" id="themeWrapper">
+              <button type="button" class="btn btn-outline-primary go">Đề thi</button>
+            </div>
+          </li>
+          <li class="menu-item"></li>
+            <div class="theme-wrapper menu-item-wrapper" id="themeWrapper">
+              <p>Xin chào, <b>Hi</b>!</p>
+            </div>
+          </li> -->
+        </ul>
+      </div>
+      <!--编辑器-->
+      <div id="codeEditor" class="code-editor"></div>
+      <!--wiki拖动时的遮罩-->
+      <div id="devWikiMask" class="dev-wiki-mask"></div>
+      <!--搜索id-->
+      <div id="searchIdWrapper" class="search-id-wrapper">
+        <div id="searchIdTitle" class="search-id-title">
+          <span>ID Search Tool</span>
+          <i class="close-icon" id="searchIdCloseIcon"></i>
+        </div>
+        <div class="search-id-inner">
+          <div id="searchIdInpWrapper" class="search-id-inpwrapper">
+            <input type="text" class="search-id-input" placeholder="please enter
+              Block ID or Name" id="searchIdInput">
+            <div class="history-list" id="searchIdHistoryList"></div>
+          </div>
+          <div id="searchIdListContainer" class="search-id-container">
+            <!-- id 列表 -->
+            <dl id="searchIdList">
+            </dl>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <script src="./js/datapack.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="./js/app.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="./js/insertCodeConfig.js"></script>
+    <div class="portfolio-modal modal fade" id="portfolioModal1"
+            tabindex="-1" aria-labelledby="portfolioModal1" aria-hidden="true">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header border-0"><button class="btn-close"
+                            type="button" data-bs-dismiss="modal"
+                            aria-label="Close"></button></div>
+                    <div class="modal-body text-center pb-5">
+                        <div class="container">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-8">
+                                    <!-- Portfolio Modal - Title-->
+                                    <h2 class="portfolio-modal-title
+                                        text-secondary text-uppercase mb-0">Kỳ 1</h2>
+                                    <!-- Icon Divider-->
+                                    <div class="divider-custom">
+                                        <div class="divider-custom-line"></div>
+                                        <div class="divider-custom-icon"><i
+                                                class="fas fa-star"></i></div>
+                                        <div class="divider-custom-line"></div>
+                                    </div>
+                                    <!-- Portfolio Modal - Image-->
+                                    <!-- <img class="img-fluid rounded mb-5"
+                                        src="assets/img/portfolio/cabin.png"
+                                        alt="..." /> -->
+                                    <!-- Portfolio Modal - Text-->
+                                    <p class="mb-4">Cho một chuỗi s đại diện cho biểu thức, hãy tính giá trị của biểu thức này và trả về kết quả.</p>
+                                    <p class="mb-4">Bạn có thể giả định rằng biểu thức đã cho luôn hợp lệ nhưng có thể tồn tại dấu cách. Tất cả các kết quả trung gian sẽ nằm trong phạm vi [-231, 231 - 1].</p>
+                                    <p class="mb-4">Lưu ý: Bạn không được phép sử dụng bất kỳ hàm tính toán nào được tích hợp sẵn trong ngôn ngữ để tính giá trị biểu thức dưới dạng chuỗi, chẳng hạn như loadstring hoặc các hàm tương tự.</p>
+                                    <table class="table">
+                                      <thead>
+                                        <tr>
+                                          <th scope="col">Đầu vào</th>
+                                          <th scope="col">Đầu ra</th>
+                                        </tr>
+                                      </thead>
+                                      <tbody>
+                                        <tr>
+                                          <td>"3+2*2"</td>
+                                          <td>"7"</td>
+                                        </tr>
+                                        <tr>
+                                          <td>" 3/2 "</td>
+                                          <td>"1"</td>
+                                        </tr>
+                                        <tr>
+                                          <td>" 3   +5 / 2 "</td>
+                                          <td>"5"</td>
+                                        </tr>
+                                      </tbody>
+                                    </table>
+                                    
+
+                                    <button class="btn btn-primary"
+                                        data-bs-dismiss="modal">
+                                        <i class="fas fa-xmark fa-fw"></i>
+                                        Close Window
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="https://apis.google.com/js/api.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  </body>
+
+</html>
