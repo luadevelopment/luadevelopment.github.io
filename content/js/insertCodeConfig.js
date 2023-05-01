@@ -52,17 +52,27 @@ viewgo.addEventListener("click", function() {
     Email: ${mail}`);
 });
 
+// gapi.load('client:auth2', function() {
+//   gapi.client.init({
+//     apiKey: 'AIzaSyCK0VZylnTrhR7xAMsZ-72VYeXVlqMu5JI',
+//     clientId: '851270111968-m5t3bkeidfaj82horub888m49ddvirui.apps.googleusercontent.com',
+//     discoveryDocs: ['https://www.googleapis.com/discovery/v1/apis/drive/v3/rest'],
+//     scope: 'https://www.googleapis.com/auth/drive.file'
+//   }).then(function() {
+//     gapi.auth2.getAuthInstance().signIn();
+//   });
+// });
+async function initializeGapiClient() {
+  
+ 
+}
 gapi.load('client:auth2', function() {
   gapi.client.init({
     apiKey: 'AIzaSyCK0VZylnTrhR7xAMsZ-72VYeXVlqMu5JI',
-    clientId: '851270111968-m5t3bkeidfaj82horub888m49ddvirui.apps.googleusercontent.com',
     discoveryDocs: ['https://www.googleapis.com/discovery/v1/apis/drive/v3/rest'],
-    scope: 'https://www.googleapis.com/auth/drive.file'
-  }).then(function() {
-    gapi.auth2.getAuthInstance().signIn();
   });
+  gapiInited = true;
 });
-
 function uploadFile() {
   var fileContent = 'Hello, world!';
   var file = new Blob([fileContent], {type: 'text/plain'});
